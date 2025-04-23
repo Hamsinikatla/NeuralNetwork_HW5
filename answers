@@ -43,3 +43,33 @@ This creates a **feedback loop**:
 The Generator produces data that is **indistinguishable from real data**, and the Discriminator can’t do better than random guessing.
 
 This competitive training helps both networks improve, pushing the Generator to become highly realistic and creative in generating data.
+Diagram of the GAN architecture showing the data flow and the objectives of each component:
+
+                     +--------------------+
+                     |  Random Noise (z)  |
+                     |   z ~ p(z)         |
+                     +--------------------+
+                                |
+                                v
+                      +------------------+
+                      |    Generator     |   <-- Objective: Generate fake data
+                      |     G(z)         |       that looks real
+                      +------------------+
+                                |
+                  +-------------+-------------+
+                  |                           |
+          Real Data (x)              Generated Data (G(z))
+       (from training dataset)        (from Generator)
+                  |                           |
+                  +-------------+-------------+
+                                v
+                      +------------------+
+                      |  Discriminator   |   <-- Objective: Distinguish
+                      |     D(x)         |       real from fake
+                      +------------------+
+                                |
+                     +-----------------------+
+                     | Output: Probability   |
+                     | D(x) ≈ 1 (real)       |
+                     | D(G(z)) ≈ 0 (fake)    |
+                     +-----------------------+
