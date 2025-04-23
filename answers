@@ -1,1 +1,45 @@
+1. GAN Architecture
 
+
+## **Adversarial Process in GAN Training**
+
+Generative Adversarial Networks (GANs) are made of two neural networks:
+
+1. **Generator (G)**  
+2. **Discriminator (D)**
+
+These two models are trained **together in a game-like scenario**, where they compete against each other:
+
+- The **Generator** tries to create fake data that looks like real data.
+- The **Discriminator** tries to tell the difference between real data (from the dataset) and fake data (from the Generator).
+
+This is called an **adversarial process** because both models are trying to outsmart each other.
+
+
+## **Goals of Each Component**
+
+### **Generator (G)**  
+- **Input**: Random noise (e.g., a vector of random numbers)  
+- **Output**: Fake data (e.g., images, text, audio)  
+- **Goal**: Generate fake data that is so realistic that the Discriminator thinks it’s real.
+
+### **Discriminator (D)**  
+- **Input**: Either real data (from the training set) or fake data (from the Generator)  
+- **Output**: A probability (0 to 1) representing how real the data is  
+- **Goal**: Correctly classify real vs. fake data.
+
+
+## **How They Improve Through Competition**
+
+1. **The Discriminator gets better** by learning to correctly identify fake data from real data.
+2. **The Generator gets better** by learning to produce fake data that the Discriminator classifies as real.
+
+This creates a **feedback loop**:
+
+- If the Discriminator becomes too strong, the Generator can't learn.
+- If the Generator becomes very good, the Discriminator can't tell real from fake (which is actually the goal).
+
+**Ideal Outcome**:  
+The Generator produces data that is **indistinguishable from real data**, and the Discriminator can’t do better than random guessing.
+
+This competitive training helps both networks improve, pushing the Generator to become highly realistic and creative in generating data.
