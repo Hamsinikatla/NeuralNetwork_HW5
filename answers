@@ -74,9 +74,10 @@ Diagram of the GAN architecture showing the data flow and the objectives of each
                      | D(G(z)) ≈ 0 (fake)    |
                      +-----------------------+
 
------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
 
 2. Ethics and AI Harm: Misinformation in Generative AI
+
 Scenario: AI-Generated Fake News and Deepfakes
 Generative AI tools, such as large language models (LLMs) and deepfake video generators, can create realistic but false content. This includes:
 
@@ -145,3 +146,113 @@ Harm Impact	Public confusion, voter manipulation, loss of trust, reputation dama
 Mitigation Strategy 1	Digital watermarking and content provenance tracking to ensure content authenticity
 Mitigation Strategy 2	Reinforcement learning from human feedback (RLHF) during training and post-deployment content moderation
 These strategies can significantly help in reducing the harm caused by AI-generated misinformation, ensuring that content remains trustworthy and ethical
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+5. Legal and Ethical Implications of GenAI
+
+## **Legal and Ethical Implications of Generative AI**
+
+### 1. **Memorizing Private Data (e.g., names in GPT-2)**
+
+#### **Legal & Ethical Concerns**:
+- **Privacy Violation**: AI models like GPT-2 have been shown to memorize and regenerate snippets of private data (e.g., names, phone numbers, email addresses) from training datasets.
+- **Lack of Consent**: Individuals whose data is embedded in training sets usually haven’t given permission, violating data protection laws like **GDPR** or **CCPA**.
+- **Security Risks**: Leaked sensitive info can be misused (e.g., identity theft, doxxing), especially if the model can regenerate real names in certain prompts.
+
+#### **Legal Implications**:
+- Possible **non-compliance with data laws** due to unfiltered scraping.
+- Legal consequences for companies that release models trained on identifiable data.
+
+
+### 2. **Generating Copyrighted Material (e.g., Harry Potter text)**
+
+### **Ethical Issues**:
+- If a model generates passages from copyrighted books like *Harry Potter*, it's **replicating protected intellectual property**.
+- Even partial generation can pose **fair use challenges**, especially if it replaces the need for the original work.
+
+#### **Legal Risks**:
+- Training on copyrighted data without permission may breach copyright laws.
+- Generated content could **infringe rights** if it resembles the original too closely or is used commercially.
+
+
+## Should Generative AI Be Restricted from Certain Data?
+
+### **Yes, Restrictions Are Necessary** — and here’s why:
+
+#### 1. **Protecting Privacy**
+- Personal, sensitive, and medical data must be **excluded or heavily anonymized**.
+- Without restrictions, AI can become a tool for unintended surveillance or data leaks.
+
+#### 2. **Respecting Creative Work**
+- Artists, writers, and musicians deserve control over how their work is used.
+- Without consent-based data usage, generative AI **undermines human creativity and ownership**.
+
+#### 3. **Maintaining Trust**
+- If models continue to output leaked data or copyrighted material, public trust will erode.
+- Restrictions promote **responsible AI** that aligns with legal norms and social values.
+
+
+## Counterpoint: Balance Is Key
+
+While **restrictions are vital**, we must avoid:
+- **Over-regulating** to the point where useful public data (e.g., Wikipedia, open-access research) becomes inaccessible
+- Blocking **fair use learning** that enhances innovation or academic study
+
+A **layered approach** with:
+- **Transparent data sourcing**
+- **Opt-out mechanisms**
+- **Independent audits**
+is more productive than blanket bans.
+
+## Conclusion
+
+Yes, generative AI models **should be restricted from using private or copyrighted data** without clear permissions. This is crucial for:
+- **Upholding privacy**
+- **Honoring intellectual property**
+- **Ensuring ethical development**
+
+At the same time, the solution isn’t just restriction — it’s responsible access, transparency, and consent.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+6. Bias & Fairness Tools
+
+## **Bias & Fairness: Aequitas Audit Tool**
+
+### **Selected Bias Metric: False Negative Rate (FNR) Parity**
+
+### **What the Metric Measures**
+
+**False Negative Rate (FNR)** measures the proportion of actual *positive* outcomes that the model *incorrectly classifies as negative*.  
+
+**FNR Parity** checks whether this error rate is **equal across different groups**, such as race, gender, age, etc.
+
+### **Why It Matters**
+
+- High false negatives in sensitive domains (like healthcare, criminal justice, or hiring) can **deny people opportunities or aid they deserve**.
+- If one group has a significantly higher FNR, that group is **being unfairly penalized** by the model.
+- FNR parity helps ensure **equal treatment**: no group is disproportionately overlooked.
+
+#### Real Example:
+In a job screening model, if women have a much higher FNR than men, they’re **more likely to be unfairly rejected** even when qualified.
+
+### **How a Model Might Fail This Metric**
+
+A model may fail FNR parity due to:
+- **Bias in training data**: Underrepresentation of certain groups leads to poorer predictions.
+- **Historical discrimination**: If past data reflects systemic bias (e.g., fewer positive outcomes for marginalized groups), the model might learn and reproduce those patterns.
+- **Feature correlation**: Sensitive attributes (like ZIP code or name) might indirectly act as proxies for race or gender.
+
+#### Example:
+If a recidivism model predicts Black defendants as "low risk" far less often than white defendants—despite equal outcomes—it fails FNR parity.
+
+
+### Summary
+
+| **Aspect**               | **Explanation**                                                   |
+|--------------------------|-------------------------------------------------------------------|
+| **Metric**               | False Negative Rate Parity                                        |
+| **What It Measures**     | Whether all groups have equal chance of *not being falsely denied* |
+| **Why It’s Important**   | Prevents discriminatory denials, ensures fair opportunity         |
+| **Model Failure Example**| Underpredicting qualified candidates for certain subgroups        |
